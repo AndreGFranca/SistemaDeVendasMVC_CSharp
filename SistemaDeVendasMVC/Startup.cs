@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SistemaDeVendasMVC.Data;
+using SistemaDeVendasMVC.Services;
 
 namespace SistemaDeVendasMVC {
     public class Startup {
@@ -35,6 +36,7 @@ namespace SistemaDeVendasMVC {
             options.UseMySql(Configuration.GetConnectionString("SistemaDeVendasMVCContext"), builder => builder.MigrationsAssembly("SistemaDeVendasMVC")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
