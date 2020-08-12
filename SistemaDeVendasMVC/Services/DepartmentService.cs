@@ -5,20 +5,17 @@ using System.Threading.Tasks;
 using SistemaDeVendasMVC.Data;
 using SistemaDeVendasMVC.Models;
 
+
 namespace SistemaDeVendasMVC.Services {
-    public class SellerService {
+    public class DepartmentService {
         private readonly SistemaDeVendasMVCContext _context;
 
-        public SellerService(SistemaDeVendasMVCContext context) {
+        public DepartmentService(SistemaDeVendasMVCContext context) {
             _context = context;
         }
-        public List<Seller> FindAll() {
-            return _context.Sellers.ToList();
-        }
 
-        public void Insert(Seller obj) {
-            _context.Add(obj);
-            _context.SaveChanges();
+        public List<Department> FindAll() {
+            return _context.Department.OrderBy(x => x.Name).ToList();
         }
     }
 }
