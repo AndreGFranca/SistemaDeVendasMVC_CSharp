@@ -20,5 +20,14 @@ namespace SistemaDeVendasMVC.Services {
             _context.Add(obj);
             _context.SaveChanges();
         }
+
+        public Seller FindById(int id) {
+            return _context.Sellers.FirstOrDefault(x => x.Id == id);
+        }
+        public void Remove(int id) {
+            var obj = _context.Sellers.Find(id);
+            _context.Sellers.Remove(obj);
+            _context.SaveChanges();
+        }
     }
 }
